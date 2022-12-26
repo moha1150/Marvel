@@ -1,0 +1,135 @@
+<html>
+
+<head>
+    <title>Marvel Characters</title>
+    <style>
+        .character-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            border: 5px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .character-card img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 30%;
+        }
+        
+        .character-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
+            text-align: center;
+        }
+        
+        .character-card p {
+            font-size: 14px;
+            text-align: justify;
+        }
+        
+        .character-card p.description {
+            font-style: italic;
+            color: #666;
+        }
+        
+        .video-container {
+            border: 10px solid #333;
+            width: 640px;
+            height: 360px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Marvel Characters</h1>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+        <div class="character-card">
+            <img src="img/ironman.jpg" alt="Iron Man ">
+            <h3>Iron Man</h3>
+            <p>Real name: Tony Stark</p>
+            <p>Powers: Genius-level intelligence, advanced technology suit</p>
+            <p class="description ">Billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.), is kidnapped and forced to build a devastating weapon. Instead, using his intelligence and ingenuity, Tony builds a high-tech suit of armor and escapes captivity.
+                When he uncovers a nefarious plot with global implications, he dons his powerful armor and vows to protect the world as Iron Man.</p>
+        </div>
+        <div class="character-card ">
+            <img src="img/captain.png " alt="Captain America ">
+            <h3>Captain America</h3>
+            <p>Real name: Steve Rogers</p>
+            <p>Powers: Super strength, agility, and endurance</p>
+            <p class="description ">Steve Rogers (Chris Evans) volunteers to participate in an experimental program that turns him into the super soldier Captain America. As Captain America, Rogers joins forces with Bucky Barnes (Sebastian Stan) and Peggy Carter (Hayley Atwell)
+                to wage war on the evil HYDRA organization, led by the villainous Red Skull (Hugo Weaving).</p>
+        </div>
+        <div class="character-card ">
+            <img src="img/black.jpg" alt="Black Widow ">
+            <h3>Black Widow</h3>
+            <p>Real name: Natasha Romanoff</p>
+            <p>Powers: Peak human physical condition, highly trained in martial arts and espionage</p>
+            <p class="description ">Natasha Romanoff (Scarlett Johansson), also known as Black Widow, is a skilled assassin and former agent of the Soviet agency for foreign intelligence, the KGB. She defies her programming and defects to the United States, where she becomes
+                a member of the Avengers and uses her cunning and expertise to defend the world from threats large and small.</p>
+        </div>
+        <div class="character-card ">
+            <img src="img/thor.jpg" alt="Thor ">
+            <h3>Thor</h3>
+            <p>Real name: Thor Odinson</p>
+            <p>Powers: Super strength, agility, and endurance, control of the elements</p>
+            <p class="description ">Thor (Chris Hemsworth) is the crown prince of Asgard, an advanced alien civilization with highly advanced technology and powerful magical abilities. When his reckless actions reignite an ancient war, Thor is cast out of Asgard and sent to
+                live amongst humans on Earth. Stripped of his powers and his mighty hammer, Mjolnir, Thor must learn humility and become a true hero in order to reclaim his place in Asgard and prevent the destruction of his homeland.</p>
+        </div>
+        <div class="character-card ">
+            <img src="img/hulk.jpg" alt="Hulk ">
+            <h3>Hulk</h3>
+            <p>Real name: Bruce Banner</p>
+            <p>Powers: Super strength, durability, and regenerative powers</p>
+            <p class="description ">Dr. Bruce Banner (Mark Ruffalo) is a brilliant scientist who, due to a freak accident, becomes the incredibly powerful and destructive monster known as the Hulk. As the Hulk, Banner struggles to control his rage and prevent his inner beast
+                from causing destruction and chaos. He must also contend with his arch-nemesis, the evil General Thunderbolt Ross (William Hurt), who seeks to capture and exploit the Hulk's powers for his own gain.</p>
+        </div>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        // JavaScript code to play a YouTube video
+        async function playYouTubeVideo(videoId) {
+            // Load the YouTube IFrame Player API
+            const youtubeScript = document.createElement('script');
+            youtubeScript.src = 'https://www.youtube.com/iframe_api';
+            document.body.appendChild(youtubeScript);
+
+            // Initialize the YouTube player
+            let player;
+            window.onYouTubeIframeAPIReady = function() {
+                player = new YT.Player('player', {
+                    height: '360',
+                    width: '640',
+                    videoId: videoId,
+                    events: {
+                        'onReady': onPlayerReady,
+                        'onStateChange': onPlayerStateChange
+                    }
+                });
+            };
+
+            // Play the video when the player is ready
+            function onPlayerReady(event) {
+                event.target.playVideo();
+            }
+
+            // Pause the video when the player state changes
+            function onPlayerStateChange(event) {
+                if (event.data == YT.PlayerState.ENDED) {
+                    event.target.seekTo(0);
+                    event.target.playVideo();
+                }
+            }
+        }
+
+        // Play the video with the specified videoId
+        playYouTubeVideo('cVq4zJ1WbaQ');
+    </script>
+</body>
+
+</html>
